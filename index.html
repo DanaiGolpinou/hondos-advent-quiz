@@ -1,178 +1,183 @@
 <!doctype html>
 <html lang="el">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Hondos Center Advent Quiz</title>
-<style>
-  :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#111}
-  body{margin:0;background:#fafafa;padding:24px;display:flex;justify-content:center}
-  .wrap{max-width:760px;width:100%;background:#fff;border-radius:12px;padding:20px;border:1px solid #ececec}
-  h1{font-size:22px;margin:0 0 6px}
-  p.lead{color:#555;margin:0 0 12px}
-  .q{margin:14px 0}
-  .opts{display:grid;gap:8px}
-  .opt{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid #e8e8e8;border-radius:10px;cursor:pointer}
-  .opt input{width:18px;height:18px}
-  .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;justify-content:center}
-  .btn{background:#111827;color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;border:none;cursor:pointer;font-weight:700}
-  .btn.secondary{background:#e5e7eb;color:#111827}
-  .result{margin-top:18px;padding:12px;border-radius:10px;background:#fbfbfb;border:1px solid #eee;display:none}
-  .badges{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
-  .badge{background:#f3f4f6;padding:6px 10px;border-radius:999px;font-size:13px}
-  .small{font-size:13px;color:#666;margin-top:6px}
-  @media (max-width:520px){.wrap{padding:14px}}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hondos Center, Advent Quiz</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="wrap" role="main" aria-labelledby="title">
-    <h1 id="title">Βρες τη γιορτινή σου beauty persona</h1>
-    <p class="lead">Διάλεξε όσες απαντήσεις θέλεις, πάτα "Υποβολή" και θα βγάλουμε πρόταση. Δε γίνεται redirect.</p>
+  <div class="container">
 
-    <div id="quiz">
-      <div class="q" data-key="A">
-        <div class="q-title"><strong>Ρεβεγιόν</strong>, τι επιλέγεις;</div>
-        <div class="opts">
-          <label class="opt"><input type="checkbox" data-val="A"> Black tie, έντονη λάμψη</label>
-          <label class="opt"><input type="checkbox" data-val="B"> Cozy dinner με φίλους</label>
-          <label class="opt"><input type="checkbox" data-val="C"> Xmas market και φωτογραφίες</label>
+    <header class="hero" aria-labelledby="title">
+      <!-- περιεχόμενο σε ανώτερο layer, για να είναι πάνω από το background -->
+      <div class="hero-inner">
+        <h1 id="title">Βρες τη γιορτινή σου beauty persona</h1>
+        <p>Διάλεξε όσες απαντήσεις θέλεις, πάτα Υποβολή, δες πρόταση που σου ταιριάζει</p>
+      </div>
+
+      <!-- αχνές λάμψεις τύπου * στο background, πίσω από το κείμενο -->
+      <div class="snow" aria-hidden="true">
+        <!-- οριζόντια θέση με %, διάρκεια σε δευτερόλεπτα, μέγεθος, αδιαφάνεια -->
+        <span class="star" style="--x:6%;  --d:10s; --s:1.0; --o:.30;"></span>
+        <span class="star" style="--x:12%; --d:14s; --s:0.9; --o:.25;"></span>
+        <span class="star" style="--x:19%; --d:18s; --s:1.2; --o:.28;"></span>
+        <span class="star" style="--x:25%; --d:12s; --s:0.8; --o:.22;"></span>
+        <span class="star" style="--x:31%; --d:16s; --s:1.1; --o:.30;"></span>
+        <span class="star" style="--x:37%; --d:11s; --s:0.9; --o:.26;"></span>
+        <span class="star" style="--x:43%; --d:20s; --s:1.0; --o:.24;"></span>
+        <span class="star" style="--x:49%; --d:13s; --s:0.85;--o:.22;"></span>
+        <span class="star" style="--x:55%; --d:17s; --s:1.15;--o:.30;"></span>
+        <span class="star" style="--x:61%; --d:9s; --s:0.95;--o:.26;"></span>
+        <span class="star" style="--x:67%; --d:15s; --s:1.05;--o:.24;"></span>
+        <span class="star" style="--x:73%; --d:19s; --s:0.9; --o:.22;"></span>
+        <span class="star" style="--x:79%; --d:12s; --s:1.1; --o:.28;"></span>
+        <span class="star" style="--x:85%; --d:16s; --s:0.8; --o:.20;"></span>
+        <span class="star" style="--x:91%; --d:21s; --s:1.0; --o:.26;"></span>
+        <!-- λίγες επιπλέον για ποικιλία, πιο μικρές -->
+        <span class="star" style="--x:14%; --d:22s; --s:0.7; --o:.18;"></span>
+        <span class="star" style="--x:28%; --d:24s; --s:0.75;--o:.18;"></span>
+        <span class="star" style="--x:52%; --d:23s; --s:0.7; --o:.18;"></span>
+        <span class="star" style="--x:76%; --d:25s; --s:0.75;--o:.18;"></span>
+        <span class="star" style="--x:88%; --d:26s; --s:0.7; --o:.18;"></span>
+      </div>
+    </header>
+
+    <section class="card">
+      <div class="grid">
+        <div>
+          <div class="section-title">Ερωτήσεις</div>
+          <div class="muted">Χαρτογράφηση, A Glam, B Cozy, C Fresh</div>
+
+          <div id="quiz">
+            <div class="q">
+              <div><strong>Ρεβεγιόν</strong>, τι επιλέγεις</div>
+              <div class="opts">
+                <label class="opt"><input type="checkbox" data-val="A"> Black tie, έντονη λάμψη</label>
+                <label class="opt"><input type="checkbox" data-val="B"> Cozy dinner με φίλους</label>
+                <label class="opt"><input type="checkbox" data-val="C"> Xmas market και φωτογραφίες</label>
+              </div>
+            </div>
+
+            <div class="q">
+              <div><strong>Χείλη</strong>, τι προτιμάς</div>
+              <div class="opts">
+                <label class="opt"><input type="checkbox" data-val="A"> Vinyl shine, bold</label>
+                <label class="opt"><input type="checkbox" data-val="B"> Κρεμώδη, φυσικό</label>
+                <label class="opt"><input type="checkbox" data-val="C"> Balm και lip liner</label>
+              </div>
+            </div>
+
+            <div class="q">
+              <div><strong>Μάτια</strong>, signature look</div>
+              <div class="opts">
+                <label class="opt"><input type="checkbox" data-val="A"> Smokey με λάμψη</label>
+                <label class="opt"><input type="checkbox" data-val="B"> Soft matte με λεπτό eyeliner</label>
+                <label class="opt"><input type="checkbox" data-val="C"> Mascara και λίγο shimmer</label>
+              </div>
+            </div>
+
+            <div class="q">
+              <div><strong>Skincare</strong>, προτεραιότητα</div>
+              <div class="opts">
+                <label class="opt"><input type="checkbox" data-val="A"> Glassy λάμψη</label>
+                <label class="opt"><input type="checkbox" data-val="B"> Ενυδάτωση και άνεση</label>
+                <label class="opt"><input type="checkbox" data-val="C"> Καθαρισμός και SPF</label>
+              </div>
+            </div>
+
+            <div class="q">
+              <div><strong>Άρωμα</strong>, τι νότες</div>
+              <div class="opts">
+                <label class="opt"><input type="checkbox" data-val="A"> Ανατολικό, ζεστό</label>
+                <label class="opt"><input type="checkbox" data-val="B"> Λουλουδάτο, απαλό</label>
+                <label class="opt"><input type="checkbox" data-val="C"> Φρέσκο, καθαρό</label>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button class="btn" id="submit">Υποβολή</button>
+              <button class="btn secondary" id="reset">Καθαρισμός</button>
+            </div>
+
+            <section id="result" class="result" aria-live="polite">
+              <h2 id="res-title"></h2>
+              <div class="badges" id="res-badges"></div>
+              <p id="res-text"></p>
+              <div class="cta-row" id="res-links"></div>
+              <p class="footer-note">Αν ισοπαλία, διάλεξε το ύφος που σε εκφράζει</p>
+            </section>
+          </div>
         </div>
+
+        <aside class="side">
+          <div class="section-title">Mood και έμπνευση</div>
+          <div class="muted">Μεγάλες εικόνες, μία κάτω από την άλλη</div>
+          <div class="gallery" aria-label="Inspo images">
+            <!-- ανέβασε τις εικόνες στο repo, φάκελος img, ονόματα look1.jpg κ.λπ. -->
+            <figure class="tile"><img src="img/look1.jpg" alt="Classic glam"><span>Classic glam</span></figure>
+            <figure class="tile"><img src="img/look2.jpg" alt="Winter glow"><span>Winter glow</span></figure>
+            <figure class="tile"><img src="img/look3.jpg" alt="Fresh spark"><span>Fresh spark</span></figure>
+          </div>
+        </aside>
       </div>
+    </section>
+  </div>
 
-      <div class="q" data-key="A">
-        <div class="q-title"><strong>Χείλη</strong>, τι προτιμάς;</div>
-        <div class="opts">
-          <label class="opt"><input type="checkbox" data-val="A"> Vinyl shine, bold</label>
-          <label class="opt"><input type="checkbox" data-val="B"> Κρεμώδη, natural</label>
-          <label class="opt"><input type="checkbox" data-val="C"> Balm + liner</label>
-        </div>
-      </div>
-
-      <div class="q" data-key="A">
-        <div class="q-title"><strong>Μάτια</strong>, signature look</div>
-        <div class="opts">
-          <label class="opt"><input type="checkbox" data-val="A"> Smokey + shimmer</label>
-          <label class="opt"><input type="checkbox" data-val="B"> Soft matte + eyeliner</label>
-          <label class="opt"><input type="checkbox" data-val="C"> Mascara + λίγο shimmer</label>
-        </div>
-      </div>
-
-      <div class="q" data-key="A">
-        <div class="q-title"><strong>Skincare</strong>, προτεραιότητα</div>
-        <div class="opts">
-          <label class="opt"><input type="checkbox" data-val="A"> Glassy λάμψη</label>
-          <label class="opt"><input type="checkbox" data-val="B"> Ενυδάτωση και comfort</label>
-          <label class="opt"><input type="checkbox" data-val="C"> Καθαρισμός και SPF</label>
-        </div>
-      </div>
-
-      <div class="q" data-key="A">
-        <div class="q-title"><strong>Άρωμα</strong>, τι νότες;</div>
-        <div class="opts">
-          <label class="opt"><input type="checkbox" data-val="A"> Ανατολικό, ζεστό</label>
-          <label class="opt"><input type="checkbox" data-val="B"> Λουλουδάτο, απαλό</label>
-          <label class="opt"><input type="checkbox" data-val="C"> Φρέσκο, καθαρό</label>
-        </div>
-      </div>
-
-      <div class="actions">
-        <button class="btn" id="submit">Υποβολή</button>
-        <button class="btn secondary" id="reset">Καθαρισμός</button>
-      </div>
-
-      <section id="result" class="result" aria-live="polite">
-        <h2 id="res-title"></h2>
-        <div class="badges" id="res-badges"></div>
-        <p id="res-text"></p>
-        <div id="res-links" style="margin-top:10px"></div>
-        <p class="small">Αν ισοπαλία, διάλεξε το ύφος που σε εκφράζει.</p>
-      </section>
-    </div>
-  </main>
-
-<script>
-(function(){
-  // Light, self-contained script, runs in the hosted file, not in Magento
-  function compute(){
-    var checkboxes = document.querySelectorAll('#quiz input[type=checkbox]');
-    var tally = {A:0,B:0,C:0};
-    checkboxes.forEach(function(cb){
-      if(cb.checked){
-        var v = cb.getAttribute('data-val');
-        if(v && tally[v] != null) tally[v] += 1;
-      }
-    });
-    return tally;
-  }
-
-  function showResult(tally){
-    var title = 'Cozy Dreamer';
-    var text = 'Άνεση, soft glam, απαλά textures.';
-    var badges = ['Skincare first','Natural glow','Warm florals'];
-    var links = [
-      {label:'Skincare', href:'/skincare'},
-      {label:'Makeup Lips', href:'/makeup/lips'},
-      {label:'Fragrances', href:'/fragrance'}
-    ];
-
-    if(tally.A > tally.B && tally.A > tally.C){
-      title = 'Glam Queen';
-      text = 'Λάμψη και ένταση, ιδανικά για βραδινά looks.';
-      badges = ['Vinyl lips','Smokey eyes','Bold aura'];
-      links = [{label:'Glam makeup', href:'/makeup'},{label:'Shimmer eyes', href:'/makeup/eyes'},{label:'Fragrance', href:'/fragrance'}];
-    } else if(tally.C > tally.A && tally.C > tally.B){
-      title = 'Fresh Spark';
-      text = 'Φρέσκο, καθαρό, γρήγορα βήματα για καθημερινή λάμψη.';
-      badges = ['SPF lover','Clean notes','Quick routines'];
-      links = [{label:'Quick skincare', href:'/skincare'},{label:'Mascara', href:'/makeup/eyes/mascara'},{label:'Fresh scents', href:'/fragrance'}];
-    } else if(tally.B > tally.A && tally.B > tally.C){
-      title = 'Cozy Dreamer';
-      text = 'Άνεση, φυσικό αποτέλεσμα και απαλές υφές.';
-      badges = ['Comfort','Natural tones','Cozy scents'];
-      links = [{label:'Hydrating skincare', href:'/skincare'},{label:'Natural lips', href:'/makeup/lips'},{label:'Soft fragrances', href:'/fragrance'}];
-    } else {
-      // tie, pick the highest among A,B,C by preference A, then B, then C
-      if(tally.A >= tally.B && tally.A >= tally.C){
-        title = 'Glam Queen';
-        text = 'Λάμψη και ένταση, ιδανικά για βραδινά looks.';
-        badges = ['Vinyl lips','Smokey eyes','Bold aura'];
-        links = [{label:'Glam makeup', href:'/makeup'},{label:'Shimmer eyes', href:'/makeup/eyes'},{label:'Fragrance', href:'/fragrance'}];
-      } else if(tally.B >= tally.A && tally.B >= tally.C){
-        title = 'Cozy Dreamer';
-        text = 'Άνεση, φυσικό αποτέλεσμα και απαλές υφές.';
-        badges = ['Comfort','Natural tones','Cozy scents'];
-        links = [{label:'Hydrating skincare', href:'/skincare'},{label:'Natural lips', href:'/makeup/lips'},{label:'Soft fragrances', href:'/fragrance'}];
-      } else {
-        title = 'Fresh Spark';
-        text = 'Φρέσκο, καθαρό, γρήγορα βήματα για καθημερινή λάμψη.';
-        badges = ['SPF lover','Clean notes','Quick routines'];
-        links = [{label:'Quick skincare', href:'/skincare'},{label:'Mascara', href:'/makeup/eyes/mascara'},{label:'Fresh scents', href:'/fragrance'}];
-      }
+  <script>
+  (function(){
+    function compute(){
+      var checkboxes = document.querySelectorAll('#quiz input[type=checkbox]');
+      var tally = {A:0,B:0,C:0};
+      checkboxes.forEach(function(cb){ if(cb.checked){ var v = cb.getAttribute('data-val'); if(v && tally[v] != null) tally[v] += 1; }});
+      return tally;
     }
+    function render(tally){
+      var title='Cozy Dreamer';
+      var text='Άνεση και απαλό φως, φυσικό αποτέλεσμα που αγκαλιάζει την επιδερμίδα';
+      var badges=['Skincare first','Natural glow','Warm florals'];
+      var links=[{label:'Skincare',href:'/skincare'},{label:'Lips',href:'/makeup/lips'},{label:'Fragrance',href:'/fragrance'}];
 
-    document.getElementById('res-title').textContent = title;
-    var badgesBox = document.getElementById('res-badges'); badgesBox.innerHTML = '';
-    badges.forEach(function(b){ var s = document.createElement('span'); s.className='badge'; s.textContent=b; badgesBox.appendChild(s); });
-    document.getElementById('res-text').textContent = text;
-    var linksBox = document.getElementById('res-links'); linksBox.innerHTML = '';
-    links.forEach(function(l){ var a = document.createElement('a'); a.href=l.href; a.textContent=l.label; a.className='btn secondary'; a.style.marginRight='8px'; linksBox.appendChild(a); });
+      if(tally.A>tally.B && tally.A>tally.C){
+        title='Glam Queen';
+        text='Λάμψη και ένταση, ιδανική για βραδινές στιγμές';
+        badges=['Vinyl lips','Smokey eyes','Bold aura'];
+        links=[{label:'Makeup',href:'/makeup'},{label:'Eyes',href:'/makeup/eyes'},{label:'Fragrance',href:'/fragrance'}];
+      } else if(tally.C>tally.A && tally.C>tally.B){
+        title='Fresh Spark';
+        text='Καθαρή λάμψη και γρήγορα βήματα για κάθε μέρα';
+        badges=['SPF lover','Clean notes','Quick routines'];
+        links=[{label:'Skincare basic',href:'/skincare'},{label:'Mascara',href:'/makeup/eyes/mascara'},{label:'Fresh scents',href:'/fragrance'}];
+      } else if(tally.B>tally.A && tally.B>tally.C){
+        title='Cozy Dreamer';
+      } else {
+        if(tally.A>=tally.B && tally.A>=tally.C){
+          title='Glam Queen';
+          text='Λάμψη και ένταση, ιδανική για βραδινές στιγμές';
+          badges=['Vinyl lips','Smokey eyes','Bold aura'];
+          links=[{label:'Makeup',href:'/makeup'},{label:'Eyes',href:'/makeup/eyes'},{label:'Fragrance',href:'/fragrance'}];
+        } else if(tally.B>=tally.A && tally.B>=tally.C){
+          title='Cozy Dreamer';
+        } else {
+          title='Fresh Spark';
+          text='Καθαρή λάμψη και γρήγορα βήματα για κάθε μέρα';
+          badges=['SPF lover','Clean notes','Quick routines'];
+          links=[{label:'Skincare basic',href:'/skincare'},{label:'Mascara',href:'/makeup/eyes/mascara'},{label:'Fresh scents',href:'/fragrance'}];
+        }
+      }
 
-    document.getElementById('result').style.display = 'block';
-    document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
-  }
+      document.getElementById('res-title').textContent=title;
+      var b=document.getElementById('res-badges'); b.innerHTML='';
+      badges.forEach(function(x){ var s=document.createElement('span'); s.className='badge'; s.textContent=x; b.appendChild(s); });
+      document.getElementById('res-text').textContent=text;
+      var l=document.getElementById('res-links'); l.innerHTML='';
+      links.forEach(function(x){ var a=document.createElement('a'); a.href=x.href; a.textContent=x.label; a.className='linkbtn'; l.appendChild(a); });
 
-  document.getElementById('submit').addEventListener('click', function(e){
-    e.preventDefault();
-    var tally = compute();
-    showResult(tally);
-  });
-
-  document.getElementById('reset').addEventListener('click', function(e){
-    e.preventDefault();
-    document.querySelectorAll('#quiz input[type=checkbox]').forEach(function(ch){ ch.checked=false; });
-    document.getElementById('result').style.display = 'none';
-  });
-})();
-</script>
+      var box=document.getElementById('result'); box.classList.add('show'); box.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+    document.getElementById('submit').addEventListener('click',function(e){e.preventDefault(); render(compute());});
+    document.getElementById('reset').addEventListener('click',function(e){e.preventDefault(); document.querySelectorAll('#quiz input[type=checkbox]').forEach(function(cb){cb.checked=false}); document.getElementById('result').classList.remove('show');});
+  })();
+  </script>
 </body>
 </html>
