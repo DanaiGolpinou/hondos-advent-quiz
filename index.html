@@ -9,175 +9,286 @@
 <body>
   <div class="container">
 
-    <header class="hero" aria-labelledby="title">
-      <!-- περιεχόμενο σε ανώτερο layer, για να είναι πάνω από το background -->
-      <div class="hero-inner">
+    <!-- ΒΗΜΑ 0, Αρχική οθόνη -->
+    <section class="card step" data-step="0" aria-labelledby="title">
+      <header class="intro">
         <h1 id="title">Βρες τη γιορτινή σου beauty persona</h1>
-        <p>Διάλεξε όσες απαντήσεις θέλεις, πάτα Υποβολή, δες πρόταση που σου ταιριάζει</p>
+        <p class="muted">Πάτα Έναρξη, απάντησε στις 5 ερωτήσεις, δες το αποτέλεσμα</p>
+      </header>
+
+      <div class="intro-gallery">
+        <figure class="tile">
+          <img src="img/look1.jpg" alt="Classic glam">
+          <figcaption>Classic glam</figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="img/look2.jpg" alt="Winter glow">
+          <figcaption>Winter glow</figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="img/look3.jpg" alt="Fresh spark">
+          <figcaption>Fresh spark</figcaption>
+        </figure>
       </div>
 
-      <!-- αχνές λάμψεις τύπου * στο background, πίσω από το κείμενο -->
-      <div class="snow" aria-hidden="true">
-        <!-- οριζόντια θέση με %, διάρκεια σε δευτερόλεπτα, μέγεθος, αδιαφάνεια -->
-        <span class="star" style="--x:6%;  --d:10s; --s:1.0; --o:.30;"></span>
-        <span class="star" style="--x:12%; --d:14s; --s:0.9; --o:.25;"></span>
-        <span class="star" style="--x:19%; --d:18s; --s:1.2; --o:.28;"></span>
-        <span class="star" style="--x:25%; --d:12s; --s:0.8; --o:.22;"></span>
-        <span class="star" style="--x:31%; --d:16s; --s:1.1; --o:.30;"></span>
-        <span class="star" style="--x:37%; --d:11s; --s:0.9; --o:.26;"></span>
-        <span class="star" style="--x:43%; --d:20s; --s:1.0; --o:.24;"></span>
-        <span class="star" style="--x:49%; --d:13s; --s:0.85;--o:.22;"></span>
-        <span class="star" style="--x:55%; --d:17s; --s:1.15;--o:.30;"></span>
-        <span class="star" style="--x:61%; --d:9s; --s:0.95;--o:.26;"></span>
-        <span class="star" style="--x:67%; --d:15s; --s:1.05;--o:.24;"></span>
-        <span class="star" style="--x:73%; --d:19s; --s:0.9; --o:.22;"></span>
-        <span class="star" style="--x:79%; --d:12s; --s:1.1; --o:.28;"></span>
-        <span class="star" style="--x:85%; --d:16s; --s:0.8; --o:.20;"></span>
-        <span class="star" style="--x:91%; --d:21s; --s:1.0; --o:.26;"></span>
-        <!-- λίγες επιπλέον για ποικιλία, πιο μικρές -->
-        <span class="star" style="--x:14%; --d:22s; --s:0.7; --o:.18;"></span>
-        <span class="star" style="--x:28%; --d:24s; --s:0.75;--o:.18;"></span>
-        <span class="star" style="--x:52%; --d:23s; --s:0.7; --o:.18;"></span>
-        <span class="star" style="--x:76%; --d:25s; --s:0.75;--o:.18;"></span>
-        <span class="star" style="--x:88%; --d:26s; --s:0.7; --o:.18;"></span>
-      </div>
-    </header>
-
-    <section class="card">
-      <div class="grid">
-        <div>
-          <div class="section-title">Ερωτήσεις</div>
-          <div class="muted">Χαρτογράφηση, A Glam, B Cozy, C Fresh</div>
-
-          <div id="quiz">
-            <div class="q">
-              <div><strong>Ρεβεγιόν</strong>, τι επιλέγεις</div>
-              <div class="opts">
-                <label class="opt"><input type="checkbox" data-val="A"> Black tie, έντονη λάμψη</label>
-                <label class="opt"><input type="checkbox" data-val="B"> Cozy dinner με φίλους</label>
-                <label class="opt"><input type="checkbox" data-val="C"> Xmas market και φωτογραφίες</label>
-              </div>
-            </div>
-
-            <div class="q">
-              <div><strong>Χείλη</strong>, τι προτιμάς</div>
-              <div class="opts">
-                <label class="opt"><input type="checkbox" data-val="A"> Vinyl shine, bold</label>
-                <label class="opt"><input type="checkbox" data-val="B"> Κρεμώδη, φυσικό</label>
-                <label class="opt"><input type="checkbox" data-val="C"> Balm και lip liner</label>
-              </div>
-            </div>
-
-            <div class="q">
-              <div><strong>Μάτια</strong>, signature look</div>
-              <div class="opts">
-                <label class="opt"><input type="checkbox" data-val="A"> Smokey με λάμψη</label>
-                <label class="opt"><input type="checkbox" data-val="B"> Soft matte με λεπτό eyeliner</label>
-                <label class="opt"><input type="checkbox" data-val="C"> Mascara και λίγο shimmer</label>
-              </div>
-            </div>
-
-            <div class="q">
-              <div><strong>Skincare</strong>, προτεραιότητα</div>
-              <div class="opts">
-                <label class="opt"><input type="checkbox" data-val="A"> Glassy λάμψη</label>
-                <label class="opt"><input type="checkbox" data-val="B"> Ενυδάτωση και άνεση</label>
-                <label class="opt"><input type="checkbox" data-val="C"> Καθαρισμός και SPF</label>
-              </div>
-            </div>
-
-            <div class="q">
-              <div><strong>Άρωμα</strong>, τι νότες</div>
-              <div class="opts">
-                <label class="opt"><input type="checkbox" data-val="A"> Ανατολικό, ζεστό</label>
-                <label class="opt"><input type="checkbox" data-val="B"> Λουλουδάτο, απαλό</label>
-                <label class="opt"><input type="checkbox" data-val="C"> Φρέσκο, καθαρό</label>
-              </div>
-            </div>
-
-            <div class="actions">
-              <button class="btn" id="submit">Υποβολή</button>
-              <button class="btn secondary" id="reset">Καθαρισμός</button>
-            </div>
-
-            <section id="result" class="result" aria-live="polite">
-              <h2 id="res-title"></h2>
-              <div class="badges" id="res-badges"></div>
-              <p id="res-text"></p>
-              <div class="cta-row" id="res-links"></div>
-              <p class="footer-note">Αν ισοπαλία, διάλεξε το ύφος που σε εκφράζει</p>
-            </section>
-          </div>
-        </div>
-
-        <aside class="side">
-          <div class="section-title">Mood και έμπνευση</div>
-          <div class="muted">Μεγάλες εικόνες, μία κάτω από την άλλη</div>
-          <div class="gallery" aria-label="Inspo images">
-            <!-- ανέβασε τις εικόνες στο repo, φάκελος img, ονόματα look1.jpg κ.λπ. -->
-            <figure class="tile"><img src="img/look1.jpg" alt="Classic glam"><span>Classic glam</span></figure>
-            <figure class="tile"><img src="img/look2.jpg" alt="Winter glow"><span>Winter glow</span></figure>
-            <figure class="tile"><img src="img/look3.jpg" alt="Fresh spark"><span>Fresh spark</span></figure>
-          </div>
-        </aside>
+      <div class="actions center">
+        <button class="btn" id="startBtn">Έναρξη</button>
       </div>
     </section>
+
+    <!-- Progress -->
+    <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div class="bar" id="progressBar"></div>
+    </div>
+
+    <!-- ΒΗΜΑ 1 -->
+    <section class="card step" data-step="1" hidden>
+      <h2 class="q-title">Ρεβεγιόν, τι επιλέγεις</h2>
+      <form class="q-form" data-name="q1">
+        <label class="opt"><input type="radio" name="q1" value="A" required> Black tie, έντονη λάμψη</label>
+        <label class="opt"><input type="radio" name="q1" value="B" required> Cozy dinner με φίλους</label>
+        <label class="opt"><input type="radio" name="q1" value="C" required> Xmas market και φωτογραφίες</label>
+      </form>
+      <div class="actions">
+        <button class="btn secondary" data-prev>Πίσω</button>
+        <button class="btn" data-next disabled>Επόμενο</button>
+      </div>
+    </section>
+
+    <!-- ΒΗΜΑ 2 -->
+    <section class="card step" data-step="2" hidden>
+      <h2 class="q-title">Χείλη, τι προτιμάς</h2>
+      <form class="q-form" data-name="q2">
+        <label class="opt"><input type="radio" name="q2" value="A" required> Vinyl shine, bold</label>
+        <label class="opt"><input type="radio" name="q2" value="B" required> Κρεμώδη, φυσικό</label>
+        <label class="opt"><input type="radio" name="q2" value="C" required> Balm και lip liner</label>
+      </form>
+      <div class="actions">
+        <button class="btn secondary" data-prev>Πίσω</button>
+        <button class="btn" data-next disabled>Επόμενο</button>
+      </div>
+    </section>
+
+    <!-- ΒΗΜΑ 3 -->
+    <section class="card step" data-step="3" hidden>
+      <h2 class="q-title">Μάτια, signature look</h2>
+      <form class="q-form" data-name="q3">
+        <label class="opt"><input type="radio" name="q3" value="A" required> Smokey με λάμψη</label>
+        <label class="opt"><input type="radio" name="q3" value="B" required> Soft matte με λεπτό eyeliner</label>
+        <label class="opt"><input type="radio" name="q3" value="C" required> Mascara και λίγο shimmer</label>
+      </form>
+      <div class="actions">
+        <button class="btn secondary" data-prev>Πίσω</button>
+        <button class="btn" data-next disabled>Επόμενο</button>
+      </div>
+    </section>
+
+    <!-- ΒΗΜΑ 4 -->
+    <section class="card step" data-step="4" hidden>
+      <h2 class="q-title">Skincare, προτεραιότητα</h2>
+      <form class="q-form" data-name="q4">
+        <label class="opt"><input type="radio" name="q4" value="A" required> Glassy λάμψη</label>
+        <label class="opt"><input type="radio" name="q4" value="B" required> Ενυδάτωση και άνεση</label>
+        <label class="opt"><input type="radio" name="q4" value="C" required> Καθαρισμός και SPF</label>
+      </form>
+      <div class="actions">
+        <button class="btn secondary" data-prev>Πίσω</button>
+        <button class="btn" data-next disabled>Επόμενο</button>
+      </div>
+    </section>
+
+    <!-- ΒΗΜΑ 5 -->
+    <section class="card step" data-step="5" hidden>
+      <h2 class="q-title">Άρωμα, τι νότες</h2>
+      <form class="q-form" data-name="q5">
+        <label class="opt"><input type="radio" name="q5" value="A" required> Ανατολικό, ζεστό</label>
+        <label class="opt"><input type="radio" name="q5" value="B" required> Λουλουδάτο, απαλό</label>
+        <label class="opt"><input type="radio" name="q5" value="C" required> Φρέσκο, καθαρό</label>
+      </form>
+      <div class="actions">
+        <button class="btn secondary" data-prev>Πίσω</button>
+        <button class="btn" id="submitBtn" disabled>Τέλος</button>
+      </div>
+    </section>
+
+    <!-- ΒΗΜΑ 6, Αποτέλεσμα -->
+    <section class="card step" data-step="6" hidden aria-live="polite">
+  <div class="result-wrap">
+    <img id="res-image" class="result-image" src="img/look1.jpg" alt="Αποτέλεσμα">
+    <div>
+      <h2 id="res-title"></h2>
+      <div class="badges" id="res-badges"></div>
+      <p id="res-text"></p>
+      <div class="cta-row" id="res-links"></div>
+      <div class="actions">
+        <button class="btn secondary" id="restartBtn">Ξεκίνα ξανά</button>
+      </div>
+    </div>
+  </div>
+</section>
   </div>
 
-  <script>
-  (function(){
-    function compute(){
-      var checkboxes = document.querySelectorAll('#quiz input[type=checkbox]');
-      var tally = {A:0,B:0,C:0};
-      checkboxes.forEach(function(cb){ if(cb.checked){ var v = cb.getAttribute('data-val'); if(v && tally[v] != null) tally[v] += 1; }});
-      return tally;
-    }
-    function render(tally){
-      var title='Cozy Dreamer';
-      var text='Άνεση και απαλό φως, φυσικό αποτέλεσμα που αγκαλιάζει την επιδερμίδα';
-      var badges=['Skincare first','Natural glow','Warm florals'];
-      var links=[{label:'Skincare',href:'/skincare'},{label:'Lips',href:'/makeup/lips'},{label:'Fragrance',href:'/fragrance'}];
+<script>
+(function(){
+  var current = 0; // 0..6
+  var steps = Array.from(document.querySelectorAll('.step'));
+  var progress = document.getElementById('progressBar');
 
-      if(tally.A>tally.B && tally.A>tally.C){
-        title='Glam Queen';
-        text='Λάμψη και ένταση, ιδανική για βραδινές στιγμές';
-        badges=['Vinyl lips','Smokey eyes','Bold aura'];
-        links=[{label:'Makeup',href:'/makeup'},{label:'Eyes',href:'/makeup/eyes'},{label:'Fragrance',href:'/fragrance'}];
-      } else if(tally.C>tally.A && tally.C>tally.B){
-        title='Fresh Spark';
-        text='Καθαρή λάμψη και γρήγορα βήματα για κάθε μέρα';
-        badges=['SPF lover','Clean notes','Quick routines'];
-        links=[{label:'Skincare basic',href:'/skincare'},{label:'Mascara',href:'/makeup/eyes/mascara'},{label:'Fresh scents',href:'/fragrance'}];
-      } else if(tally.B>tally.A && tally.B>tally.C){
-        title='Cozy Dreamer';
+  var answers = { q1:null, q2:null, q3:null, q4:null, q5:null };
+
+  function show(stepIndex){
+    steps.forEach(function(s){ s.hidden = true; });
+    var s = steps[stepIndex];
+    if(s){ s.hidden = false; }
+    current = stepIndex;
+    var pct = Math.max(0, Math.min(100, Math.round(((stepIndex - 1) / 5) * 100)));
+    progress.style.width = stepIndex === 0 ? '0%' : pct + '%';
+    progress.parentElement.setAttribute('aria-valuenow', stepIndex === 0 ? 0 : pct);
+    // enable buttons depending on selection
+    var form = s ? s.querySelector('.q-form') : null;
+    var nextBtn = s ? s.querySelector('[data-next]') : null;
+    var prevBtn = s ? s.querySelector('[data-prev]') : null;
+    var submitBtn = document.getElementById('submitBtn');
+
+    if(prevBtn){ prevBtn.disabled = stepIndex <= 1; }
+    if(nextBtn){
+      var has = form && form.querySelector('input[type=radio]:checked');
+      nextBtn.disabled = !has;
+    }
+    if(submitBtn && stepIndex === 5){
+      var has5 = steps[5].querySelector('input[type=radio]:checked');
+      submitBtn.disabled = !has5;
+    }
+  }
+
+  function tallyAndRender(){
+    var t = {A:0,B:0,C:0};
+    Object.keys(answers).forEach(function(k){
+      var v = answers[k];
+      if(v) t[v] += 1;
+    });
+
+    // Mapping, A → Classic glam, B → Winter glow, C → Fresh spark
+    var title = 'Winter glow';
+    var text  = 'Άνεση και απαλό φως, φυσικό αποτέλεσμα που αγκαλιάζει την επιδερμίδα';
+    var badges = ['Skincare first','Natural glow','Warm tones'];
+    var links  = [{label:'Skincare',href:'/skincare'},{label:'Lips',href:'/makeup/lips'},{label:'Fragrance',href:'/fragrance'}];
+    var img    = 'img/look2.jpg';
+
+    if(t.A > t.B && t.A > t.C){
+      title = 'Classic glam';
+      text  = 'Λάμψη και ένταση για βραδινές στιγμές, high impact υφές που γράφουν όμορφα στο φως';
+      badges = ['Vinyl lips','Smokey eyes','Bold aura'];
+      links  = [{label:'Makeup',href:'/makeup'},{label:'Eyes',href:'/makeup/eyes'},{label:'Fragrance',href:'/fragrance'}];
+      img    = 'img/look1.jpg';
+    } else if(t.C > t.A && t.C > t.B){
+      title = 'Fresh spark';
+      text  = 'Καθαρή λάμψη και γρήγορα βήματα για κάθε μέρα, ανάλαφρες υφές με άμεσο αποτέλεσμα';
+      badges = ['SPF lover','Clean notes','Quick routines'];
+      links  = [{label:'Skincare basic',href:'/skincare'},{label:'Mascara',href:'/makeup/eyes/mascara'},{label:'Fresh scents',href:'/fragrance'}];
+      img    = 'img/look3.jpg';
+    } else if(t.B > t.A && t.B > t.C){
+      title = 'Winter glow';
+      // οι default τιμές ήδη καλύπτουν το B
+    } else {
+      // Ισοπαλία, προτεραιότητα A μετά B μετά C
+      if(t.A >= t.B && t.A >= t.C){
+        title = 'Classic glam';
+        text  = 'Λάμψη και ένταση για βραδινές στιγμές, high impact υφές που γράφουν όμορφα στο φως';
+        badges = ['Vinyl lips','Smokey eyes','Bold aura'];
+        links  = [{label:'Makeup',href:'/makeup'},{label:'Eyes',href:'/makeup/eyes'},{label:'Fragrance',href:'/fragrance'}];
+        img    = 'img/look1.jpg';
+      } else if(t.B >= t.A && t.B >= t.C){
+        title = 'Winter glow';
+        // κρατά τα default του B
       } else {
-        if(tally.A>=tally.B && tally.A>=tally.C){
-          title='Glam Queen';
-          text='Λάμψη και ένταση, ιδανική για βραδινές στιγμές';
-          badges=['Vinyl lips','Smokey eyes','Bold aura'];
-          links=[{label:'Makeup',href:'/makeup'},{label:'Eyes',href:'/makeup/eyes'},{label:'Fragrance',href:'/fragrance'}];
-        } else if(tally.B>=tally.A && tally.B>=tally.C){
-          title='Cozy Dreamer';
-        } else {
-          title='Fresh Spark';
-          text='Καθαρή λάμψη και γρήγορα βήματα για κάθε μέρα';
-          badges=['SPF lover','Clean notes','Quick routines'];
-          links=[{label:'Skincare basic',href:'/skincare'},{label:'Mascara',href:'/makeup/eyes/mascara'},{label:'Fresh scents',href:'/fragrance'}];
-        }
+        title = 'Fresh spark';
+        text  = 'Καθαρή λάμψη και γρήγορα βήματα για κάθε μέρα, ανάλαφρες υφές με άμεσο αποτέλεσμα';
+        badges = ['SPF lover','Clean notes','Quick routines'];
+        links  = [{label:'Skincare basic',href:'/skincare'},{label:'Mascara',href:'/makeup/eyes/mascara'},{label:'Fresh scents',href:'/fragrance'}];
+        img    = 'img/look3.jpg';
       }
-
-      document.getElementById('res-title').textContent=title;
-      var b=document.getElementById('res-badges'); b.innerHTML='';
-      badges.forEach(function(x){ var s=document.createElement('span'); s.className='badge'; s.textContent=x; b.appendChild(s); });
-      document.getElementById('res-text').textContent=text;
-      var l=document.getElementById('res-links'); l.innerHTML='';
-      links.forEach(function(x){ var a=document.createElement('a'); a.href=x.href; a.textContent=x.label; a.className='linkbtn'; l.appendChild(a); });
-
-      var box=document.getElementById('result'); box.classList.add('show'); box.scrollIntoView({behavior:'smooth',block:'start'});
     }
-    document.getElementById('submit').addEventListener('click',function(e){e.preventDefault(); render(compute());});
-    document.getElementById('reset').addEventListener('click',function(e){e.preventDefault(); document.querySelectorAll('#quiz input[type=checkbox]').forEach(function(cb){cb.checked=false}); document.getElementById('result').classList.remove('show');});
-  })();
-  </script>
+
+    document.getElementById('res-title').textContent = title;
+    document.getElementById('res-text').textContent  = text;
+
+    var bb = document.getElementById('res-badges'); bb.innerHTML = '';
+    badges.forEach(function(b){ var s = document.createElement('span'); s.className = 'badge'; s.textContent = b; bb.appendChild(s); });
+
+    var ll = document.getElementById('res-links'); ll.innerHTML = '';
+    links.forEach(function(l){ var a = document.createElement('a'); a.href = l.href; a.textContent = l.label; a.className = 'linkbtn'; ll.appendChild(a); });
+
+    document.getElementById('res-image').src = img;
+    show(6);
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  // Start
+  document.getElementById('startBtn').addEventListener('click', function(){
+    show(1);
+  });
+
+  // Prev, Next, Submit handlers using event delegation
+  document.addEventListener('click', function(e){
+    var btnPrev = e.target.closest('[data-prev]');
+    var btnNext = e.target.closest('[data-next]');
+    if(btnPrev){
+      e.preventDefault();
+      if(current > 1) show(current - 1);
+    }
+    if(btnNext){
+      e.preventDefault();
+      // guard, must have selection in this step
+      var form = steps[current].querySelector('.q-form');
+      if(form && form.checkValidity()){
+        var name = form.getAttribute('data-name');
+        var chosen = form.querySelector('input[type=radio]:checked');
+        answers[name] = chosen ? chosen.value : null;
+        show(current + 1);
+      } else {
+        // show native error bubble
+        var first = form.querySelector('input[required]');
+        if(first && first.reportValidity){ first.reportValidity(); }
+      }
+    }
+    if(e.target.id === 'submitBtn'){
+      e.preventDefault();
+      var form = steps[5].querySelector('.q-form');
+      if(form && form.checkValidity()){
+        var name = form.getAttribute('data-name');
+        var chosen = form.querySelector('input[type=radio]:checked');
+        answers[name] = chosen ? chosen.value : null;
+        tallyAndRender();
+      } else {
+        var first = form.querySelector('input[required]');
+        if(first && first.reportValidity){ first.reportValidity(); }
+      }
+    }
+    if(e.target.id === 'restartBtn'){
+      e.preventDefault();
+      // reset all
+      document.querySelectorAll('.q-form input[type=radio]').forEach(function(r){ r.checked = false; });
+      answers = { q1:null, q2:null, q3:null, q4:null, q5:null };
+      show(0);
+    }
+  });
+
+  // Enable Next when user picks an answer
+  document.querySelectorAll('.q-form').forEach(function(f){
+    f.addEventListener('change', function(){
+      var has = f.querySelector('input[type=radio]:checked');
+      var stepEl = f.closest('.step');
+      var nextBtn = stepEl.querySelector('[data-next]');
+      var submitBtn = document.getElementById('submitBtn');
+      if(nextBtn){ nextBtn.disabled = !has; }
+      if(submitBtn && stepEl.getAttribute('data-step') === '5'){ submitBtn.disabled = !has; }
+    });
+  });
+
+  // init
+  show(0);
+})();
+</script>
 </body>
 </html>
