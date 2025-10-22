@@ -18,20 +18,20 @@
 
       <div class="intro-gallery">
         <figure class="tile">
-          <img src="img/look1.jpg" alt="Classic glam">
+          <img src="img/look1.jpg" alt="Classic glam" loading="lazy" decoding="async" width="800" height="600">
           <figcaption>Classic glam</figcaption>
         </figure>
         <figure class="tile">
-          <img src="img/look2.jpg" alt="Winter glow">
+          <img src="img/look2.jpg" alt="Winter glow" loading="lazy" decoding="async" width="800" height="600">
           <figcaption>Winter glow</figcaption>
         </figure>
         <figure class="tile">
-          <img src="img/look3.jpg" alt="Fresh spark">
+          <img src="img/look3.jpg" alt="Fresh spark" loading="lazy" decoding="async" width="800" height="600">
           <figcaption>Fresh spark</figcaption>
         </figure>
       </div>
 
-      <div class="actions center">
+      <div class="actions center start-sticky">
         <button class="btn" id="startBtn">Έναρξη</button>
       </div>
     </section>
@@ -113,19 +113,19 @@
 
     <!-- ΒΗΜΑ 6, Αποτέλεσμα -->
     <section class="card step" data-step="6" hidden aria-live="polite">
-  <div class="result-wrap">
-    <img id="res-image" class="result-image" src="img/look1.jpg" alt="Αποτέλεσμα">
-    <div>
-      <h2 id="res-title"></h2>
-      <div class="badges" id="res-badges"></div>
-      <p id="res-text"></p>
-      <div class="cta-row" id="res-links"></div>
-      <div class="actions">
-        <button class="btn secondary" id="restartBtn">Ξεκίνα ξανά</button>
+      <div class="result-wrap">
+        <img id="res-image" class="result-image" src="img/look1.jpg" alt="Αποτέλεσμα">
+        <div>
+          <h2 id="res-title"></h2>
+          <div class="badges" id="res-badges"></div>
+          <p id="res-text"></p>
+          <div class="cta-row" id="res-links"></div>
+          <div class="actions">
+            <button class="btn secondary" id="restartBtn">Ξεκίνα ξανά</button>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
   </div>
 
 <script>
@@ -136,15 +136,21 @@
 
   var answers = { q1:null, q2:null, q3:null, q4:null, q5:null };
 
+  // Πιο γρήγορο scroll στην αρχή
+  try { window.scrollTo({ top: 0, behavior: 'instant' }); } catch(e) {}
+
   function show(stepIndex){
     steps.forEach(function(s){ s.hidden = true; });
     var s = steps[stepIndex];
     if(s){ s.hidden = false; }
     current = stepIndex;
+
+    // progress
     var pct = Math.max(0, Math.min(100, Math.round(((stepIndex - 1) / 5) * 100)));
     progress.style.width = stepIndex === 0 ? '0%' : pct + '%';
     progress.parentElement.setAttribute('aria-valuenow', stepIndex === 0 ? 0 : pct);
-    // enable buttons depending on selection
+
+    // κουμπιά
     var form = s ? s.querySelector('.q-form') : null;
     var nextBtn = s ? s.querySelector('[data-next]') : null;
     var prevBtn = s ? s.querySelector('[data-prev]') : null;
@@ -159,6 +165,9 @@
       var has5 = steps[5].querySelector('input[type=radio]:checked');
       submitBtn.disabled = !has5;
     }
+
+    // πάντα στην κορυφή του τρέχοντος βήματος
+    if(s && s.scrollIntoView){ s.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   }
 
   function tallyAndRender(){
@@ -168,7 +177,7 @@
       if(v) t[v] += 1;
     });
 
-    // Mapping, A → Classic glam, B → Winter glow, C → Fresh spark
+    // Default B Winter glow
     var title = 'Winter glow';
     var text  = 'Άνεση και απαλό φως, φυσικό αποτέλεσμα που αγκαλιάζει την επιδερμίδα';
     var badges = ['Skincare first','Natural glow','Warm tones'];
@@ -189,9 +198,7 @@
       img    = 'img/look3.jpg';
     } else if(t.B > t.A && t.B > t.C){
       title = 'Winter glow';
-      // οι default τιμές ήδη καλύπτουν το B
     } else {
-      // Ισοπαλία, προτεραιότητα A μετά B μετά C
       if(t.A >= t.B && t.A >= t.C){
         title = 'Classic glam';
         text  = 'Λάμψη και ένταση για βραδινές στιγμές, high impact υφές που γράφουν όμορφα στο φως';
@@ -200,7 +207,6 @@
         img    = 'img/look1.jpg';
       } else if(t.B >= t.A && t.B >= t.C){
         title = 'Winter glow';
-        // κρατά τα default του B
       } else {
         title = 'Fresh spark';
         text  = 'Καθαρή λάμψη και γρήγορα βήματα για κάθε μέρα, ανάλαφρες υφές με άμεσο αποτέλεσμα';
@@ -221,7 +227,6 @@
 
     document.getElementById('res-image').src = img;
     show(6);
-    window.scrollTo({top:0, behavior:'smooth'});
   }
 
   // Start
@@ -239,7 +244,6 @@
     }
     if(btnNext){
       e.preventDefault();
-      // guard, must have selection in this step
       var form = steps[current].querySelector('.q-form');
       if(form && form.checkValidity()){
         var name = form.getAttribute('data-name');
@@ -247,7 +251,6 @@
         answers[name] = chosen ? chosen.value : null;
         show(current + 1);
       } else {
-        // show native error bubble
         var first = form.querySelector('input[required]');
         if(first && first.reportValidity){ first.reportValidity(); }
       }
@@ -267,7 +270,6 @@
     }
     if(e.target.id === 'restartBtn'){
       e.preventDefault();
-      // reset all
       document.querySelectorAll('.q-form input[type=radio]').forEach(function(r){ r.checked = false; });
       answers = { q1:null, q2:null, q3:null, q4:null, q5:null };
       show(0);
