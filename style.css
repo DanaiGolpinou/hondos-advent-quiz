@@ -4,6 +4,10 @@
   --muted:#6b7280;
   --ring:#e5e7eb;
   --bg:#0b0e14;
+
+  /* μεγέθη κάρτας εικόνας, desktop και mobile */
+  --cardSize-d: 220px;
+  --cardSize-m: 150px;
 }
 
 *{box-sizing:border-box}
@@ -18,9 +22,11 @@ body{
   color:var(--ink);
 }
 
+/* βασική διάταξη */
 .container{max-width:980px;margin:0 auto;padding:24px}
 .card{background:var(--card);border:1px solid var(--ring);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.08);padding:18px;margin-bottom:18px}
 
+/* intro */
 .intro{text-align:center}
 .intro h1{margin:0 0 6px}
 .muted{color:var(--muted);font-size:14px}
@@ -30,63 +36,57 @@ body{
 .tile img{width:100%;height:200px;object-fit:cover;display:block}
 .tile figcaption{position:absolute;left:8px;bottom:8px;background:rgba(17,24,39,.75);color:#fff;padding:4px 8px;border-radius:999px;font-size:12px}
 
+/* progress */
 .progress{height:8px;background:#0b0e141a;border:1px solid #0b0e1428;border-radius:999px;overflow:hidden;margin:6px 0 12px}
 .bar{height:100%;width:0%;background:#111827;transition:width .3s ease}
 
+/* ερωτήσεις με κείμενο */
 .q-title{font-size:20px;margin:4px 0 12px}
 .q-form{display:grid;gap:10px}
-.opt{display:grid;grid-template-columns:18px 1fr;align-items:center;gap:10px;padding:12px;border:1px solid #e5e7eb;border-radius:12px;cursor:pointer}
+.opt{display:grid;grid-template-columns:18px 1fr;align-items:center;gap:10px;padding:12px;border:1px solid #e5e7eb;border-radius:12px;cursor:pointer;background:#fff}
 .opt:hover{border-color:#111827}
 
-/* grid για εικόνες επιλογών, 3 στη σειρά σε desktop */
+/* εικόνες επιλογών, ΠΑΝΤΑ τετράγωνες και χωρίς τέντωμα */
 .q-form-grid{
   display:grid;
-  grid-template-columns:repeat(3, 1fr);
+  grid-auto-rows: var(--cardSize-d);                 /* ύψος γραμμής ίσο με το μέγεθος κάρτας */
+  grid-template-columns: repeat(auto-fill, minmax(var(--cardSize-d), var(--cardSize-d)));
   gap:16px;
-  justify-items:center;
+  justify-content:center;                            /* δεν τεντώνει, κεντράρει τις στήλες */
 }
 
-/* label με radio και κάρτα εικόνας */
-.imgopt{ display:block; cursor:pointer; }
-.imgopt input{
-  position:absolute;
-  opacity:0;
-  pointer-events:none;
-}
+.imgopt{ display:inline-block; cursor:pointer; }     /* inline-block ώστε να μην γεμίζει 100% */
+.imgopt input{ position:absolute; opacity:0; pointer-events:none; }
 
-/* σταθερό οπτικό μέγεθος κάρτας, τετράγωνη προεπισκόπηση */
 .imgcard{
   margin:0;
-  width:220px;
-  max-width:100%;
+  width:var(--cardSize-d);
+  height:var(--cardSize-d);                          /* σταθερό τετράγωνο */
   border:1px solid #e5e7eb;
   border-radius:14px;
   overflow:hidden;
   background:#fff;
   transition:border-color .2s, box-shadow .2s, transform .12s;
 }
-
-/* τετράγωνη εικόνα */
 .imgcard img{
   display:block;
   width:100%;
-  aspect-ratio:1 / 1;
-  object-fit:cover;
+  height:100%;
+  object-fit:cover;                                   /* γεμίζει το τετράγωνο */
 }
-
 .imgcard figcaption{
-  font-size:14px;
-  padding:10px 12px;
-  color:#111827;
+  position:absolute; left:8px; bottom:8px;
+  background:rgba(17,24,39,.75); color:#fff;
+  padding:4px 8px; border-radius:999px; font-size:12px;
 }
 
+/* states */
 .imgopt:hover .imgcard{
   border-color:#111827;
   box-shadow:0 6px 16px rgba(17,24,39,.08);
 }
 .imgopt input:focus-visible + .imgcard{
-  outline:2px solid #111827;
-  outline-offset:2px;
+  outline:2px solid #111827; outline-offset:2px;
 }
 .imgopt input:checked + .imgcard{
   border-color:#111827;
@@ -94,19 +94,7 @@ body{
   transform:translateY(-1px);
 }
 
-/* responsive, μικρότερες σε μικρές οθόνες */
-@media (max-width: 900px){
-  .imgcard{ width:190px; }
-}
-@media (max-width: 720px){
-  .q-form-grid{ grid-template-columns:repeat(2, 1fr); }
-  .imgcard{ width:160px; }
-}
-@media (max-width: 420px){
-  .q-form-grid{ grid-template-columns:repeat(2, 1fr); }
-  .imgcard{ width:140px; }
-}
-
+/* κουμπιά και αποτελέσματα */
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 .actions.center{justify-content:center}
 .btn{background:#111827;color:#fff;padding:10px 14px;border-radius:12px;border:none;cursor:pointer;font-weight:800}
@@ -120,40 +108,32 @@ body{
 .cta-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .linkbtn{display:inline-block;background:#e5e7eb;color:#111827;text-decoration:none;padding:10px 12px;border-radius:12px;font-weight:700}
 
-/* Mobile friendly tweaks */
+/* mobile friendly tweaks για intro και progress */
 .start-sticky { position: static; }
 @media (max-width: 720px) {
-  .start-sticky {
-    position: sticky;
-    bottom: 12px;
-    z-index: 5;
-    padding: 8px 0;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-  }
+  .start-sticky { position: sticky; bottom: 12px; z-index: 5; padding: 8px 0; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
   .start-sticky .btn { width: 100%; }
   .intro-gallery {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 80%;
-    overflow-x: auto;
-    gap: 10px;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 6px;
+    display: grid; grid-auto-flow: column; grid-auto-columns: 80%;
+    overflow-x: auto; gap: 10px; scroll-snap-type: x mandatory; padding-bottom: 6px;
   }
   .intro-gallery .tile { scroll-snap-align: start; }
   .intro-gallery .tile img { height: 200px; }
-  .progress {
-    position: sticky;
-    top: 0;
-    z-index: 6;
-    margin-top: 0;
-    border-radius: 0;
-  }
+  .progress { position: sticky; top: 0; z-index: 6; margin-top: 0; border-radius: 0; }
   .card { padding: 14px; }
   .q-title { margin-top: 2px; }
 }
 
+/* responsive για τετράγωνες κάρτες εικόνων σε μικρές οθόνες */
+@media (max-width: 900px){
+  .q-form-grid{
+    grid-auto-rows: var(--cardSize-m);
+    grid-template-columns: repeat(auto-fill, minmax(var(--cardSize-m), var(--cardSize-m)));
+  }
+  .imgcard{ width:var(--cardSize-m); height:var(--cardSize-m); }
+}
+
+/* αποτέλεσμα σε mobile */
 @media (max-width:720px){
   .result-wrap{grid-template-columns:1fr}
   .result-image{width:100%;height:220px}
