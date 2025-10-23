@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Hondos Center, Advent Quiz</title>
+  <title>Hondos Center, Holiday Persona Quiz</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -12,22 +12,22 @@
     <!-- ΒΗΜΑ 0, Αρχική οθόνη -->
     <section class="card step" data-step="0" aria-labelledby="title">
       <header class="intro">
-        <h1 id="title">Βρες τη γιορτινή σου beauty persona</h1>
-        <p class="muted">Πάτα Έναρξη, απάντησε στις 5 ερωτήσεις, δες το αποτέλεσμα</p>
+        <h1 id="title">Βρες τη γιορτινή σου Holiday Persona</h1>
+        <p class="muted">Πάτα Έναρξη, απάντησε σε 5 ερωτήσεις, δες ποια persona σε εκφράζει</p>
       </header>
 
       <div class="intro-gallery">
         <figure class="tile">
-          <img src="img/look1.jpg" alt="Classic glam" loading="lazy" decoding="async" width="800" height="600">
-          <figcaption>Classic glam</figcaption>
+          <img src="img/glow.jpg" alt="The Holiday GLOW QUEEN" loading="lazy" decoding="async" width="800" height="600">
+          <figcaption>The Holiday GLOW QUEEN</figcaption>
         </figure>
         <figure class="tile">
-          <img src="img/look2.jpg" alt="Winter glow" loading="lazy" decoding="async" width="800" height="600">
-          <figcaption>Winter glow</figcaption>
+          <img src="img/selfcare.jpg" alt="The Self-Care ELF" loading="lazy" decoding="async" width="800" height="600">
+          <figcaption>The Self-Care ELF</figcaption>
         </figure>
         <figure class="tile">
-          <img src="img/look3.jpg" alt="Fresh spark" loading="lazy" decoding="async" width="800" height="600">
-          <figcaption>Fresh spark</figcaption>
+          <img src="img/styleicon.jpg" alt="The Festive STYLE ICON" loading="lazy" decoding="async" width="800" height="600">
+          <figcaption>The Festive STYLE ICON</figcaption>
         </figure>
       </div>
 
@@ -43,11 +43,11 @@
 
     <!-- ΒΗΜΑ 1 -->
     <section class="card step" data-step="1" hidden>
-      <h2 class="q-title">Ρεβεγιόν, τι επιλέγεις</h2>
+      <h2 class="q-title">Ποιο στοιχείο κάνει τις γιορτές να νιώθουν μαγικές;</h2>
       <form class="q-form" data-name="q1">
-        <label class="opt"><input type="radio" name="q1" value="A" required> Black tie, έντονη λάμψη</label>
-        <label class="opt"><input type="radio" name="q1" value="B" required> Cozy dinner με φίλους</label>
-        <label class="opt"><input type="radio" name="q1" value="C" required> Xmas market και φωτογραφίες</label>
+        <label class="opt"><input type="radio" name="q1" value="A" required> Η χριστουγεννιάτικη λάμψη, τα φώτα και τα στολίδια</label>
+        <label class="opt"><input type="radio" name="q1" value="B" required> Η θαλπωρή δίπλα στο τζάκι με ζεστή σοκολάτα</label>
+        <label class="opt"><input type="radio" name="q1" value="C" required> Τα χριστουγεννιάτικα πάρτι και οι φίλοι</label>
       </form>
       <div class="actions">
         <button class="btn secondary" data-prev>Πίσω</button>
@@ -55,13 +55,31 @@
       </div>
     </section>
 
-    <!-- ΒΗΜΑ 2 -->
+    <!-- ΒΗΜΑ 2, ερώτηση με εικόνες -->
     <section class="card step" data-step="2" hidden>
-      <h2 class="q-title">Χείλη, τι προτιμάς</h2>
-      <form class="q-form" data-name="q2">
-        <label class="opt"><input type="radio" name="q2" value="A" required> Vinyl shine, bold</label>
-        <label class="opt"><input type="radio" name="q2" value="B" required> Κρεμώδη, φυσικό</label>
-        <label class="opt"><input type="radio" name="q2" value="C" required> Balm και lip liner</label>
+      <h2 class="q-title">Τι χριστουγεννιάτικο γλυκό θα ήσουν;</h2>
+      <form class="q-form q-form-grid" data-name="q2">
+        <label class="imgopt">
+          <input type="radio" name="q2" value="A" required>
+          <figure class="imgcard">
+            <img src="img/q2_log.jpg" alt="Κορμός σοκολάτας" loading="lazy" decoding="async" width="600" height="800">
+            <figcaption>Κορμός σοκολάτας</figcaption>
+          </figure>
+        </label>
+        <label class="imgopt">
+          <input type="radio" name="q2" value="B" required>
+          <figure class="imgcard">
+            <img src="img/q2_kourabies.jpg" alt="Κουραμπιές" loading="lazy" decoding="async" width="600" height="800">
+            <figcaption>Κουραμπιές</figcaption>
+          </figure>
+        </label>
+        <label class="imgopt">
+          <input type="radio" name="q2" value="C" required>
+          <figure class="imgcard">
+            <img src="img/q2_gingerbread.jpg" alt="Gingerbread cookie" loading="lazy" decoding="async" width="600" height="800">
+            <figcaption>Gingerbread cookie</figcaption>
+          </figure>
+        </label>
       </form>
       <div class="actions">
         <button class="btn secondary" data-prev>Πίσω</button>
@@ -69,13 +87,31 @@
       </div>
     </section>
 
-    <!-- ΒΗΜΑ 3 -->
+    <!-- ΒΗΜΑ 3, ερώτηση με εικόνες -->
     <section class="card step" data-step="3" hidden>
-      <h2 class="q-title">Μάτια, signature look</h2>
-      <form class="q-form" data-name="q3">
-        <label class="opt"><input type="radio" name="q3" value="A" required> Smokey με λάμψη</label>
-        <label class="opt"><input type="radio" name="q3" value="B" required> Soft matte με λεπτό eyeliner</label>
-        <label class="opt"><input type="radio" name="q3" value="C" required> Mascara και λίγο shimmer</label>
+      <h2 class="q-title">Ποια είναι η αγαπημένη σου χριστουγεννιάτικη ταινία;</h2>
+      <form class="q-form q-form-grid" data-name="q3">
+        <label class="imgopt">
+          <input type="radio" name="q3" value="A" required>
+          <figure class="imgcard">
+            <img src="img/q3_holiday.jpg" alt="The Holiday" loading="lazy" decoding="async" width="600" height="800">
+            <figcaption>The Holiday</figcaption>
+          </figure>
+        </label>
+        <label class="imgopt">
+          <input type="radio" name="q3" value="B" required>
+          <figure class="imgcard">
+            <img src="img/q3_loveactually.jpg" alt="Love Actually" loading="lazy" decoding="async" width="600" height="800">
+            <figcaption>Love Actually</figcaption>
+          </figure>
+        </label>
+        <label class="imgopt">
+          <input type="radio" name="q3" value="C" required>
+          <figure class="imgcard">
+            <img src="img/q3_homealone.jpg" alt="Home Alone" loading="lazy" decoding="async" width="600" height="800">
+            <figcaption>Home Alone</figcaption>
+          </figure>
+        </label>
       </form>
       <div class="actions">
         <button class="btn secondary" data-prev>Πίσω</button>
@@ -85,11 +121,11 @@
 
     <!-- ΒΗΜΑ 4 -->
     <section class="card step" data-step="4" hidden>
-      <h2 class="q-title">Skincare, προτεραιότητα</h2>
+      <h2 class="q-title">Ποιο emoji χαρακτηρίζει το holiday mood σου;</h2>
       <form class="q-form" data-name="q4">
-        <label class="opt"><input type="radio" name="q4" value="A" required> Glassy λάμψη</label>
-        <label class="opt"><input type="radio" name="q4" value="B" required> Ενυδάτωση και άνεση</label>
-        <label class="opt"><input type="radio" name="q4" value="C" required> Καθαρισμός και SPF</label>
+        <label class="opt"><input type="radio" name="q4" value="A" required> 💫</label>
+        <label class="opt"><input type="radio" name="q4" value="B" required> 🕯️</label>
+        <label class="opt"><input type="radio" name="q4" value="C" required> 💋</label>
       </form>
       <div class="actions">
         <button class="btn secondary" data-prev>Πίσω</button>
@@ -99,11 +135,11 @@
 
     <!-- ΒΗΜΑ 5 -->
     <section class="card step" data-step="5" hidden>
-      <h2 class="q-title">Άρωμα, τι νότες</h2>
+      <h2 class="q-title">Ποια είναι η ιδανική παραμονή;</h2>
       <form class="q-form" data-name="q5">
-        <label class="opt"><input type="radio" name="q5" value="A" required> Ανατολικό, ζεστό</label>
-        <label class="opt"><input type="radio" name="q5" value="B" required> Λουλουδάτο, απαλό</label>
-        <label class="opt"><input type="radio" name="q5" value="C" required> Φρέσκο, καθαρό</label>
+        <label class="opt"><input type="radio" name="q5" value="A" required> Λαμπερό ρεβεγιόν</label>
+        <label class="opt"><input type="radio" name="q5" value="B" required> Cozy evening στο σπίτι με χριστουγεννιάτικες ταινίες</label>
+        <label class="opt"><input type="radio" name="q5" value="C" required> Partying all night</label>
       </form>
       <div class="actions">
         <button class="btn secondary" data-prev>Πίσω</button>
@@ -114,7 +150,7 @@
     <!-- ΒΗΜΑ 6, Αποτέλεσμα -->
     <section class="card step" data-step="6" hidden aria-live="polite">
       <div class="result-wrap">
-        <img id="res-image" class="result-image" src="img/look1.jpg" alt="Αποτέλεσμα">
+        <img id="res-image" class="result-image" src="img/glow.jpg" alt="Αποτέλεσμα">
         <div>
           <h2 id="res-title"></h2>
           <div class="badges" id="res-badges"></div>
@@ -136,7 +172,6 @@
 
   var answers = { q1:null, q2:null, q3:null, q4:null, q5:null };
 
-  // Πιο γρήγορο scroll στην αρχή
   try { window.scrollTo({ top: 0, behavior: 'instant' }); } catch(e) {}
 
   function show(stepIndex){
@@ -145,12 +180,10 @@
     if(s){ s.hidden = false; }
     current = stepIndex;
 
-    // progress
     var pct = Math.max(0, Math.min(100, Math.round(((stepIndex - 1) / 5) * 100)));
     progress.style.width = stepIndex === 0 ? '0%' : pct + '%';
     progress.parentElement.setAttribute('aria-valuenow', stepIndex === 0 ? 0 : pct);
 
-    // κουμπιά
     var form = s ? s.querySelector('.q-form') : null;
     var nextBtn = s ? s.querySelector('[data-next]') : null;
     var prevBtn = s ? s.querySelector('[data-prev]') : null;
@@ -166,7 +199,6 @@
       submitBtn.disabled = !has5;
     }
 
-    // πάντα στην κορυφή του τρέχοντος βήματος
     if(s && s.scrollIntoView){ s.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   }
 
@@ -177,42 +209,62 @@
       if(v) t[v] += 1;
     });
 
-    // Default B Winter glow
-    var title = 'Winter glow';
-    var text  = 'Άνεση και απαλό φως, φυσικό αποτέλεσμα που αγκαλιάζει την επιδερμίδα';
-    var badges = ['Skincare first','Natural glow','Warm tones'];
-    var links  = [{label:'Skincare',href:'/skincare'},{label:'Lips',href:'/makeup/lips'},{label:'Fragrance',href:'/fragrance'}];
-    var img    = 'img/look2.jpg';
+    // Default B → The Self-Care ELF
+    var title = 'The Self-Care ELF';
+    var text  = 'Ήρεμη, αγαπά hot choco, fairy lights και cozy vibes';
+    var badges = ['Skincare sets','Bath and body','Aromatherapy'];
+    var links  = [
+      {label:'Skincare',href:'/skincare'},
+      {label:'Bath and Body',href:'/bath-body'},
+      {label:'Candles',href:'/home/candles'}
+    ];
+    var img    = 'img/selfcare.jpg';
 
     if(t.A > t.B && t.A > t.C){
-      title = 'Classic glam';
-      text  = 'Λάμψη και ένταση για βραδινές στιγμές, high impact υφές που γράφουν όμορφα στο φως';
-      badges = ['Vinyl lips','Smokey eyes','Bold aura'];
-      links  = [{label:'Makeup',href:'/makeup'},{label:'Eyes',href:'/makeup/eyes'},{label:'Fragrance',href:'/fragrance'}];
-      img    = 'img/look1.jpg';
+      title = 'The Holiday GLOW QUEEN';
+      text  = 'Λατρεύει τη λάμψη, το glitter και bold festive looks';
+      badges = ['Highlighters','Shimmering oils','Bold fragrances'];
+      links  = [
+        {label:'Makeup',href:'/makeup'},
+        {label:'Fragrances',href:'/fragrance'},
+        {label:'Dresses',href:'/fashion/dresses'}
+      ];
+      img    = 'img/glow.jpg';
     } else if(t.C > t.A && t.C > t.B){
-      title = 'Fresh spark';
-      text  = 'Καθαρή λάμψη και γρήγορα βήματα για κάθε μέρα, ανάλαφρες υφές με άμεσο αποτέλεσμα';
-      badges = ['SPF lover','Clean notes','Quick routines'];
-      links  = [{label:'Skincare basic',href:'/skincare'},{label:'Mascara',href:'/makeup/eyes/mascara'},{label:'Fresh scents',href:'/fragrance'}];
-      img    = 'img/look3.jpg';
+      title = 'The Festive STYLE ICON';
+      text  = 'Fashion forward, δημιουργεί looks, statement εμφανίσεις';
+      badges = ['Trendy makeup','Hair styling tools','Bold accessories'];
+      links  = [
+        {label:'Lipsticks',href:'/makeup/lips'},
+        {label:'Bags',href:'/fashion/bags'},
+        {label:'Shoes',href:'/fashion/shoes'}
+      ];
+      img    = 'img/styleicon.jpg';
     } else if(t.B > t.A && t.B > t.C){
-      title = 'Winter glow';
+      title = 'The Self-Care ELF';
     } else {
       if(t.A >= t.B && t.A >= t.C){
-        title = 'Classic glam';
-        text  = 'Λάμψη και ένταση για βραδινές στιγμές, high impact υφές που γράφουν όμορφα στο φως';
-        badges = ['Vinyl lips','Smokey eyes','Bold aura'];
-        links  = [{label:'Makeup',href:'/makeup'},{label:'Eyes',href:'/makeup/eyes'},{label:'Fragrance',href:'/fragrance'}];
-        img    = 'img/look1.jpg';
+        title = 'The Holiday GLOW QUEEN';
+        text  = 'Λατρεύει τη λάμψη, το glitter και bold festive looks';
+        badges = ['Highlighters','Shimmering oils','Bold fragrances'];
+        links  = [
+          {label:'Makeup',href:'/makeup'},
+          {label:'Fragrances',href:'/fragrance'},
+          {label:'Dresses',href:'/fashion/dresses'}
+        ];
+        img    = 'img/glow.jpg';
       } else if(t.B >= t.A && t.B >= t.C){
-        title = 'Winter glow';
+        title = 'The Self-Care ELF';
       } else {
-        title = 'Fresh spark';
-        text  = 'Καθαρή λάμψη και γρήγορα βήματα για κάθε μέρα, ανάλαφρες υφές με άμεσο αποτέλεσμα';
-        badges = ['SPF lover','Clean notes','Quick routines'];
-        links  = [{label:'Skincare basic',href:'/skincare'},{label:'Mascara',href:'/makeup/eyes/mascara'},{label:'Fresh scents',href:'/fragrance'}];
-        img    = 'img/look3.jpg';
+        title = 'The Festive STYLE ICON';
+        text  = 'Fashion forward, δημιουργεί looks, statement εμφανίσεις';
+        badges = ['Trendy makeup','Hair styling tools','Bold accessories'];
+        links  = [
+          {label:'Lipsticks',href:'/makeup/lips'},
+          {label:'Bags',href:'/fashion/bags'},
+          {label:'Shoes',href:'/fashion/shoes'}
+        ];
+        img    = 'img/styleicon.jpg';
       }
     }
 
@@ -229,12 +281,10 @@
     show(6);
   }
 
-  // Start
   document.getElementById('startBtn').addEventListener('click', function(){
     show(1);
   });
 
-  // Prev, Next, Submit handlers using event delegation
   document.addEventListener('click', function(e){
     var btnPrev = e.target.closest('[data-prev]');
     var btnNext = e.target.closest('[data-next]');
@@ -276,7 +326,6 @@
     }
   });
 
-  // Enable Next when user picks an answer
   document.querySelectorAll('.q-form').forEach(function(f){
     f.addEventListener('change', function(){
       var has = f.querySelector('input[type=radio]:checked');
@@ -288,7 +337,6 @@
     });
   });
 
-  // init
   show(0);
 })();
 </script>
