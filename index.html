@@ -197,18 +197,18 @@
   try { window.scrollTo({ top: 0, behavior: 'instant' }); } catch(e) {}
 
   function show(stepIndex){
-  // κρύψε όλα τα steps και δείξε το σωστό
+  // κρύψε όλα τα steps και δείξε μόνο το σωστό
   steps.forEach(function(s){ s.hidden = true; });
   var s = steps[stepIndex];
   if(s){ s.hidden = false; }
   current = stepIndex;
 
-  // progress bar
+  // ενημέρωση progress bar
   var pct = Math.max(0, Math.min(100, Math.round(((stepIndex - 1) / 5) * 100)));
   progress.style.width = stepIndex === 0 ? '0%' : pct + '%';
   progress.parentElement.setAttribute('aria-valuenow', stepIndex === 0 ? 0 : pct);
 
-  // κουμπιά
+  // κουμπιά enable / disable
   var form = s ? s.querySelector('.q-form') : null;
   var nextBtn = s ? s.querySelector('[data-next]') : null;
   var prevBtn = s ? s.querySelector('[data-prev]') : null;
@@ -224,14 +224,21 @@
     submitBtn.disabled = !has5;
   }
 
-  // scroll στην κορυφή του iframe περιεχομένου, όχι χαμηλά
+  // force scroll στην αρχή του iframe περιεχομένου, και καθάρισε το activeElement
   try {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-  } catch(e) {
-    // αν ο browser δεν ξέρει 'instant', fallback χωρίς smooth
-    window.scrollTo(0, 0);
-  }
+    if (document.activeElement && typeof document.activeElement.blur === 'function') {
+      document.activeElement.blur();
+    }
+  } catch(e){}
+
+  // σκληρό reset scroll: και στο παράθυρο και στο έγγραφο
+  try {
+    window.scrollTo(0,0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  } catch(e){}
 }
+
 
 
   function tallyAndRender(){
