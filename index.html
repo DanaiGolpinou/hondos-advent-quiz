@@ -197,32 +197,42 @@
   try { window.scrollTo({ top: 0, behavior: 'instant' }); } catch(e) {}
 
   function show(stepIndex){
-    steps.forEach(function(s){ s.hidden = true; });
-    var s = steps[stepIndex];
-    if(s){ s.hidden = false; }
-    current = stepIndex;
+  // κρύψε όλα τα steps και δείξε το σωστό
+  steps.forEach(function(s){ s.hidden = true; });
+  var s = steps[stepIndex];
+  if(s){ s.hidden = false; }
+  current = stepIndex;
 
-    var pct = Math.max(0, Math.min(100, Math.round(((stepIndex - 1) / 5) * 100)));
-    progress.style.width = stepIndex === 0 ? '0%' : pct + '%';
-    progress.parentElement.setAttribute('aria-valuenow', stepIndex === 0 ? 0 : pct);
+  // progress bar
+  var pct = Math.max(0, Math.min(100, Math.round(((stepIndex - 1) / 5) * 100)));
+  progress.style.width = stepIndex === 0 ? '0%' : pct + '%';
+  progress.parentElement.setAttribute('aria-valuenow', stepIndex === 0 ? 0 : pct);
 
-    var form = s ? s.querySelector('.q-form') : null;
-    var nextBtn = s ? s.querySelector('[data-next]') : null;
-    var prevBtn = s ? s.querySelector('[data-prev]') : null;
-    var submitBtn = document.getElementById('submitBtn');
+  // κουμπιά
+  var form = s ? s.querySelector('.q-form') : null;
+  var nextBtn = s ? s.querySelector('[data-next]') : null;
+  var prevBtn = s ? s.querySelector('[data-prev]') : null;
+  var submitBtn = document.getElementById('submitBtn');
 
-    if(prevBtn){ prevBtn.disabled = stepIndex <= 1; }
-    if(nextBtn){
-      var has = form && form.querySelector('input[type=radio]:checked');
-      nextBtn.disabled = !has;
-    }
-    if(submitBtn && stepIndex === 5){
-      var has5 = steps[5].querySelector('input[type=radio]:checked');
-      submitBtn.disabled = !has5;
-    }
-
-    if(s && s.scrollIntoView){ s.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  if(prevBtn){ prevBtn.disabled = stepIndex <= 1; }
+  if(nextBtn){
+    var has = form && form.querySelector('input[type=radio]:checked');
+    nextBtn.disabled = !has;
   }
+  if(submitBtn && stepIndex === 5){
+    var has5 = steps[5].querySelector('input[type=radio]:checked');
+    submitBtn.disabled = !has5;
+  }
+
+  // scroll στην κορυφή του iframe περιεχομένου, όχι χαμηλά
+  try {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  } catch(e) {
+    // αν ο browser δεν ξέρει 'instant', fallback χωρίς smooth
+    window.scrollTo(0, 0);
+  }
+}
+
 
   function tallyAndRender(){
     var t = {A:0,B:0,C:0};
