@@ -149,12 +149,34 @@
 
     <!-- ΒΗΜΑ 6, Αποτέλεσμα -->
     <section class="card step" data-step="6" hidden aria-live="polite">
+
+      <!-- Banner αποτελέσματος με sparkles που αλλάζουν ανά persona -->
+      <div class="result-banner" id="resultBanner">
+        <div class="celebrate-layer" aria-hidden="true">
+          <span class="spark"></span>
+          <span class="spark"></span>
+          <span class="spark"></span>
+          <span class="spark"></span>
+          <span class="spark"></span>
+          <span class="spark"></span>
+          <span class="spark"></span>
+          <span class="spark"></span>
+          <span class="spark"></span>
+          <span class="spark"></span>
+        </div>
+
+        <div class="result-intro-wrapper">
+          <div class="result-label">Η γιορτινή σου persona είναι:</div>
+          <div class="result-name" id="persona-name-inline">Holiday GLOW QUEEN</div>
+        </div>
+      </div>
+
+      <!-- Περιεχόμενο αποτελέσματος, χωρίς να ξαναγράφει τον τίτλο -->
       <div class="result-wrap">
         <img id="res-image" class="result-image" src="img/glow.jpg" alt="Αποτέλεσμα">
         <div>
-          <h2 id="res-title"></h2>
-          <div class="badges" id="res-badges"></div>
           <p id="res-text"></p>
+          <div class="badges" id="res-badges"></div>
           <div class="cta-row" id="res-links"></div>
           <div class="actions">
             <button class="btn secondary" id="restartBtn">Ξεκίνα ξανά</button>
@@ -209,55 +231,62 @@
       if(v) t[v] += 1;
     });
 
-    // Default B → The Self-Care ELF
-    var title = 'The Self-Care ELF';
-    var text  = 'Ήρεμη, αγαπά hot choco, fairy lights και cozy vibes';
+    // default persona, B
+    var personaKey = 'elf';
+    var personaTitle = 'The Self-Care ELF';
+    var desc  = 'Ήρεμη, αγαπά hot choco, fairy lights και cozy vibes';
     var badges = ['Skincare sets','Bath and body','Aromatherapy'];
     var links  = [
-      {label:'Skincare',href:'/skincare'},
-      {label:'Bath and Body',href:'/bath-body'},
-      {label:'Candles',href:'/home/candles'}
+      {label:'Skincare',href:'https://www.hondoscenter.com/el/eponyma-kallyntika-prosopo.html'},
+      {label:'Bath and Body',href:'https://www.hondoscenter.com/el/eponyma-kallyntika-soma.html'},
+      {label:'Candles & Home Scents',href:'https://www.hondoscenter.com/el/beauty/aromata/aromata-choroy.html'}
     ];
     var img    = 'img/selfcare.jpg';
 
     if(t.A > t.B && t.A > t.C){
-      title = 'The Holiday GLOW QUEEN';
-      text  = 'Λατρεύει τη λάμψη, το glitter και bold festive looks';
+      personaKey = 'glow';
+      personaTitle = 'The Holiday GLOW QUEEN';
+      desc  = 'Λατρεύεις τη λάμψη, το glitter και τα bold festive looks';
       badges = ['Highlighters','Shimmering oils','Bold fragrances'];
       links  = [
-        {label:'Makeup',href:'/makeup'},
-        {label:'Fragrances',href:'/fragrance'},
-        {label:'Dresses',href:'/fashion/dresses'}
+        {label:'Highlighters',href:'https://www.hondoscenter.com/el/beauty/makigiaz/prosopo/highlighters-illuminators/f/tmima-kallyntikon/eponyma-kallyntika.html'},
+        {label:'Fragrances',href:'https://www.hondoscenter.com/el/beauty/aromata/gynaikeia-aromata/f/tmima-kallyntikon/eponyma-kallyntika.html'},
+        {label:'Dresses',href:'https://www.hondoscenter.com/el/fashion/gynaika/endysi/foremata.html'}
       ];
       img    = 'img/glow.jpg';
     } else if(t.C > t.A && t.C > t.B){
-      title = 'The Festive STYLE ICON';
-      text  = 'Fashion forward, δημιουργεί looks, statement εμφανίσεις';
+      personaKey = 'icon';
+      personaTitle = 'The Festive STYLE ICON';
+      desc  = 'Fashion forward, δημιουργείς looks και statement εμφανίσεις';
       badges = ['Trendy makeup','Hair styling tools','Bold accessories'];
       links  = [
-        {label:'Lipsticks',href:'/makeup/lips'},
-        {label:'Bags',href:'/fashion/bags'},
-        {label:'Shoes',href:'/fashion/shoes'}
+        {label:'Lipsticks',href:'https://www.hondoscenter.com/el/beauty/makigiaz/cheili/f/tmima-kallyntikon/eponyma-kallyntika.html'},
+        {label:'Bags',href:'https://www.hondoscenter.com/el/fashion/gynaika/tsantes.html'},
+        {label:'Shoes',href:'https://www.hondoscenter.com/el/fashion/gynaika/ypodisi.html'}
       ];
       img    = 'img/styleicon.jpg';
     } else if(t.B > t.A && t.B > t.C){
-      title = 'The Self-Care ELF';
+      personaKey = 'elf';
+      personaTitle = 'The Self-Care ELF';
     } else {
       if(t.A >= t.B && t.A >= t.C){
-        title = 'The Holiday GLOW QUEEN';
-        text  = 'Λατρεύει τη λάμψη, το glitter και bold festive looks';
+        personaKey = 'glow';
+        personaTitle = 'The Holiday GLOW QUEEN';
+        desc  = 'Λατρεύεις τη λάμψη, το glitter και τα bold festive looks';
         badges = ['Highlighters','Shimmering oils','Bold fragrances'];
         links  = [
-          {label:'Makeup',href:'/makeup'},
-          {label:'Fragrances',href:'/fragrance'},
-          {label:'Dresses',href:'/fashion/dresses'}
+          {label:'Highlighters',href:'https://www.hondoscenter.com/el/beauty/makigiaz/prosopo/highlighters-illuminators/f/tmima-kallyntikon/eponyma-kallyntika.html'},
+          {label:'Fragrances',href:'https://www.hondoscenter.com/el/beauty/aromata/gynaikeia-aromata/f/tmima-kallyntikon/eponyma-kallyntika.html'},
+          {label:'Dresses',href:'https://www.hondoscenter.com/el/fashion/gynaika/endysi/foremata.html'}
         ];
         img    = 'img/glow.jpg';
       } else if(t.B >= t.A && t.B >= t.C){
-        title = 'The Self-Care ELF';
+        personaKey = 'elf';
+        personaTitle = 'The Self-Care ELF';
       } else {
-        title = 'The Festive STYLE ICON';
-        text  = 'Fashion forward, δημιουργεί looks, statement εμφανίσεις';
+        personaKey = 'icon';
+        personaTitle = 'The Festive STYLE ICON';
+        desc  = 'Fashion forward, δημιουργείς looks και statement εμφανίσεις';
         badges = ['Trendy makeup','Hair styling tools','Bold accessories'];
         links  = [
           {label:'Lipsticks',href:'/makeup/lips'},
@@ -268,16 +297,41 @@
       }
     }
 
-    document.getElementById('res-title').textContent = title;
-    document.getElementById('res-text').textContent  = text;
+    // ενημερώνουμε το banner
+    var banner = document.getElementById('resultBanner');
+    banner.className = 'result-banner result-' + personaKey;
 
+    // ονομα στο banner
+    document.getElementById('persona-name-inline').textContent = personaTitle;
+
+    // κείμενο περιγραφής κάτω από το banner
+    document.getElementById('res-text').textContent  = desc;
+
+    // badges
     var bb = document.getElementById('res-badges'); bb.innerHTML = '';
-    badges.forEach(function(b){ var s = document.createElement('span'); s.className = 'badge'; s.textContent = b; bb.appendChild(s); });
+    badges.forEach(function(b){
+      var s = document.createElement('span');
+      s.className = 'badge';
+      s.textContent = b;
+      bb.appendChild(s);
+    });
 
-    var ll = document.getElementById('res-links'); ll.innerHTML = '';
-    links.forEach(function(l){ var a = document.createElement('a'); a.href = l.href; a.textContent = l.label; a.className = 'linkbtn'; ll.appendChild(a); });
+    // CTA links
+    var ll = document.getElementById('res-links'); 
+ll.innerHTML = '';
+links.forEach(function(l){
+  var a = document.createElement('a');
+  a.href = l.href;
+  a.textContent = l.label;
+  a.className = 'linkbtn';
+  a.target = '_blank';
+  a.rel = 'noopener noreferrer';
+  ll.appendChild(a);
+});
 
+    // εικόνα persona
     document.getElementById('res-image').src = img;
+
     show(6);
   }
 
