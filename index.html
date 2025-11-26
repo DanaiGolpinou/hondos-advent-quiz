@@ -47,7 +47,7 @@
       <form class="q-form" data-name="q1">
         <label class="opt"><input type="radio" name="q1" value="A" required> Η χριστουγεννιάτικη λάμψη, τα φώτα και τα στολίδια</label>
         <label class="opt"><input type="radio" name="q1" value="B" required> Η θαλπωρή δίπλα στο τζάκι με ζεστή σοκολάτα</label>
-        <label class="opt"><input type="radio" name="q1" value="C" required> Τα χριστουγεννιάτικα πάρτι και οι φίλοι</label>
+        <label class="opt"><input type="radio" name="q1" value="C" required> Τα χριστουγεννιάτικα πάρτυ και οι φίλοι</label>
       </form>
       <div class="actions">
         <button class="btn secondary" data-prev>Πίσω</button>
@@ -69,8 +69,8 @@
         <label class="imgopt">
           <input type="radio" name="q2" value="B" required>
           <figure class="imgcard">
-            <img src="img/q2_kourabies.jpg" alt="Κουραμπιές" loading="lazy" decoding="async" width="600" height="800">
-            <figcaption>Κουραμπιές</figcaption>
+            <img src="img/q2_kourabies.jpg" alt="Κουραμπιές/Μελομακάρονο" loading="lazy" decoding="async" width="600" height="800">
+            <figcaption>Κουραμπιές/Μελομακάρονο</figcaption>
           </figure>
         </label>
         <label class="imgopt">
@@ -102,7 +102,7 @@
           <input type="radio" name="q3" value="B" required>
           <figure class="imgcard">
             <img src="img/q3_loveactually.jpg" alt="Love Actually" loading="lazy" decoding="async" width="600" height="800">
-            <figcaption>Love Actually</figcaption>
+            <figcaption>The Grinch</figcaption>
           </figure>
         </label>
         <label class="imgopt">
@@ -121,11 +121,11 @@
 
     <!-- ΒΗΜΑ 4 -->
     <section class="card step" data-step="4" hidden>
-      <h2 class="q-title">Ποιο emoji χαρακτηρίζει το holiday mood σου;</h2>
+      <h2 class="q-title">Ποια emoji χαρακτηρίζουν το holiday mood σου;</h2>
       <form class="q-form" data-name="q4">
-        <label class="opt"><input type="radio" name="q4" value="A" required> 💫</label>
-        <label class="opt"><input type="radio" name="q4" value="B" required> 🕯️</label>
-        <label class="opt"><input type="radio" name="q4" value="C" required> 💋</label>
+        <label class="opt"><input type="radio" name="q4" value="A" required> 🌟 💝 🎆</label>
+        <label class="opt"><input type="radio" name="q4" value="B" required> 🎄 ❄️ 🎁</label>
+        <label class="opt"><input type="radio" name="q4" value="C" required> 🎅🏼 ⛄ 🔔</label>
       </form>
       <div class="actions">
         <button class="btn secondary" data-prev>Πίσω</button>
@@ -135,7 +135,7 @@
 
     <!-- ΒΗΜΑ 5 -->
     <section class="card step" data-step="5" hidden>
-      <h2 class="q-title">Ποια είναι η ιδανική παραμονή;</h2>
+      <h2 class="q-title">Ποια είναι η ιδανική παραμονή Χριστουγέννων/Πρωτοχρονιάς;</h2>
       <form class="q-form" data-name="q5">
         <label class="opt"><input type="radio" name="q5" value="A" required> Λαμπερό ρεβεγιόν</label>
         <label class="opt"><input type="radio" name="q5" value="B" required> Cozy evening στο σπίτι με χριστουγεννιάτικες ταινίες</label>
@@ -251,34 +251,35 @@
     // default persona, B
     var personaKey = 'elf';
     var personaTitle = 'The Self-Care ELF';
-    var desc  = 'Ήρεμη, αγαπά hot choco, fairy lights και cozy vibes';
-    var badges = ['Skincare sets','Bath and body','Aromatherapy'];
+    var desc  = '🎄 Αγαπάς την ζεστή σοκολάτα, τα fairy lights και θες cozy vibes.';
     var links  = [
       {label:'Skincare',href:'https://www.hondoscenter.com/el/eponyma-kallyntika-prosopo.html'},
-      {label:'Bath and Body',href:'https://www.hondoscenter.com/el/eponyma-kallyntika-soma.html'},
-      {label:'Candles & Home Scents',href:'https://www.hondoscenter.com/el/beauty/aromata/aromata-choroy.html'}
+      {label:'HairCare',href:'https://www.hondoscenter.com/el/beauty/mallia/peripoiisi-mallion.html'},
+      {label:'Candles & Home Scents',href:'https://www.hondoscenter.com/el/beauty/aromata/aromata-choroy.html'},
+      {label:'HomeWear',href:'https://www.hondoscenter.com/el/fashion/gynaika/pyzames.html'}
     ];
     var img    = 'img/selfcare.jpg';
 
     if(t.A > t.B && t.A > t.C){
       personaKey = 'glow';
       personaTitle = 'The Holiday GLOW QUEEN';
-      desc  = 'Λατρεύεις τη λάμψη, το glitter και τα bold festive looks';
-      badges = ['Highlighters','Shimmering oils','Bold fragrances'];
+      desc  = '✨ Λατρεύεις την λάμψη, το glitter και τα bold festive looks.';
+      
       links  = [
-        {label:'Highlighters',href:'https://www.hondoscenter.com/el/beauty/makigiaz/prosopo/highlighters-illuminators/f/tmima-kallyntikon/eponyma-kallyntika.html'},
-        {label:'Fragrances',href:'https://www.hondoscenter.com/el/beauty/aromata/gynaikeia-aromata/f/tmima-kallyntikon/eponyma-kallyntika.html'},
+        {label:'Highlighters',href:'https://www.hondoscenter.com/el/beauty/makigiaz/prosopo/highlighters-illuminators.html'},
+        {label:'Sparkly Eyeshadows',href:'https://www.hondoscenter.com/el/beauty/makigiaz/matia/skies/f/opsi-apotelesmatos/glitter-metalliki-lampsi.html'},
+        {label:'Red Lipsticks',href:'https://www.hondoscenter.com/el/beauty/makigiaz/cheili/f/chroma/kokkino.html'},
         {label:'Dresses',href:'https://www.hondoscenter.com/el/fashion/gynaika/endysi/foremata.html'}
       ];
       img    = 'img/glow.jpg';
     } else if(t.C > t.A && t.C > t.B){
       personaKey = 'icon';
       personaTitle = 'The Festive STYLE ICON';
-      desc  = 'Fashion forward, δημιουργείς looks και statement εμφανίσεις';
-      badges = ['Trendy makeup','Hair styling tools','Bold accessories'];
+      desc  = '💃 Είσαι fashion-forward, δημιουργείς looks και statement appearances.';
       links  = [
-        {label:'Lipsticks',href:'https://www.hondoscenter.com/el/beauty/makigiaz/cheili/f/tmima-kallyntikon/eponyma-kallyntika.html'},
+        {label:'Fragrances',href:'https://www.hondoscenter.com/el/eponyma-kallyntika-aromata.html'},
         {label:'Bags',href:'https://www.hondoscenter.com/el/fashion/gynaika/tsantes.html'},
+        {label:'Accessories',href:'https://www.hondoscenter.com/el/fashion/gynaika/axesoyar.html'},
         {label:'Shoes',href:'https://www.hondoscenter.com/el/fashion/gynaika/ypodisi.html'}
       ];
       img    = 'img/styleicon.jpg';
@@ -289,13 +290,13 @@
       if(t.A >= t.B && t.A >= t.C){
         personaKey = 'glow';
         personaTitle = 'The Holiday GLOW QUEEN';
-        desc  = 'Λατρεύεις τη λάμψη, το glitter και τα bold festive looks';
-        badges = ['Highlighters','Shimmering oils','Bold fragrances'];
+        desc  = '✨ Λατρεύεις την λάμψη, το glitter και τα bold festive looks.';
         links  = [
-          {label:'Highlighters',href:'https://www.hondoscenter.com/el/beauty/makigiaz/prosopo/highlighters-illuminators/f/tmima-kallyntikon/eponyma-kallyntika.html'},
-          {label:'Fragrances',href:'https://www.hondoscenter.com/el/beauty/aromata/gynaikeia-aromata/f/tmima-kallyntikon/eponyma-kallyntika.html'},
-          {label:'Dresses',href:'https://www.hondoscenter.com/el/fashion/gynaika/endysi/foremata.html'}
-        ];
+          {label:'Highlighters',href:'https://www.hondoscenter.com/el/beauty/makigiaz/prosopo/highlighters-illuminators.html'},
+        {label:'Sparkly Eyeshadows',href:'https://www.hondoscenter.com/el/beauty/makigiaz/matia/skies/f/opsi-apotelesmatos/glitter-metalliki-lampsi.html'},
+        {label:'Red Lipsticks',href:'https://www.hondoscenter.com/el/beauty/makigiaz/cheili/f/chroma/kokkino.html'},
+        {label:'Dresses',href:'https://www.hondoscenter.com/el/fashion/gynaika/endysi/foremata.html'}
+      ];
         img    = 'img/glow.jpg';
       } else if(t.B >= t.A && t.B >= t.C){
         personaKey = 'elf';
@@ -303,13 +304,13 @@
       } else {
         personaKey = 'icon';
         personaTitle = 'The Festive STYLE ICON';
-        desc  = 'Fashion forward, δημιουργείς looks και statement εμφανίσεις';
-        badges = ['Trendy makeup','Hair styling tools','Bold accessories'];
-        links  = [
-          {label:'Lipsticks',href:'/makeup/lips'},
-          {label:'Bags',href:'/fashion/bags'},
-          {label:'Shoes',href:'/fashion/shoes'}
-        ];
+        desc  = '💃 Είσαι fashion-forward, δημιουργείς looks και statement appearances.';
+       links  = [
+        {label:'Fragrances',href:'https://www.hondoscenter.com/el/eponyma-kallyntika-aromata.html'},
+        {label:'Bags',href:'https://www.hondoscenter.com/el/fashion/gynaika/tsantes.html'},
+        {label:'Accessories',href:'https://www.hondoscenter.com/el/fashion/gynaika/axesoyar.html'},
+        {label:'Shoes',href:'https://www.hondoscenter.com/el/fashion/gynaika/ypodisi.html'}
+      ];
         img    = 'img/styleicon.jpg';
       }
     }
